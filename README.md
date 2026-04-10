@@ -1,0 +1,1 @@
+# cybercam-app-yolo11-det
