@@ -25,10 +25,9 @@ if not cap.isOpened():
 
 display_width = k230_display.get_width()
 display_height = k230_display.get_height()
-# 设置为1080p
-# cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
-# cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)  # 设置宽度
-# cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)  # 设置长度
+
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)  # 设置宽度
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)  # 设置长度
 
 class_names = [
     'person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus',
@@ -140,12 +139,7 @@ while True:
         
     cv2.putText(img, 'FPS: '+str(fps), (10,30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2) #图像绘制帧率
     k230_display.show(img)
-    
-    # cv2.imshow("result", img)#窗口显示图片
-    
-    # key = cv2.waitKey(1) # 窗口的图像刷新时间为1毫秒，防止阻塞    
-    # if key == 32: # 如果按下空格键，打断退出
-    #     break
+
     
 cap .release() # 关闭摄像头
 cv2.destroyAllWindows() # 销毁显示摄像头视频的窗口
